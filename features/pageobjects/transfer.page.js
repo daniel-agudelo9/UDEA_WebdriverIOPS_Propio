@@ -1,7 +1,9 @@
 import Page from './page.js';
 
 class TransferPage extends Page {
-
+    /**
+     * define selectors using getter methods
+     */
     get inputAmount () {
         return $("//input[@id='amount']");
     }
@@ -14,7 +16,7 @@ class TransferPage extends Page {
         return $("//select[@id='toAccountId']");
     }
 
-    get botonTransfer () {
+    get btnTransfer () {
         return $("//input[@value='Transfer']");
     }
 
@@ -31,8 +33,8 @@ class TransferPage extends Page {
         await this.inputToAccount.waitForEnabled();        
         await this.inputToAccount.selectByAttribute('value', toAccount);  
 
-        await expect(this.botonTransfer).toBeExisting();        
-        await this.botonTransfer.click();
+        await expect(this.btnTransfer).toBeExisting();        
+        await this.btnTransfer.click();
     }
 
   open() {
